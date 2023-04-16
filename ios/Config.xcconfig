@@ -1,0 +1,10 @@
+//
+//  Config.xcconfig
+//  LearningRnConfig
+//
+//  Created by Du's Mac on 4/16/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include? "tmp.xcconfig"
