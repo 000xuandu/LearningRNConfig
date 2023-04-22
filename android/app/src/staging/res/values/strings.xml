@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Staging_LearningRnConfig</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">5bIX3toRoZzWJ63JFH6Il5bs8CmKNDI5rgBM6</string>
 </resources>
