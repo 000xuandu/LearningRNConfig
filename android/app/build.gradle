@@ -127,10 +127,12 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file('keystore/release.keystore')
-            storePassword 'XUANdu593@'
-            keyAlias 'RELEASE_KEYSTORE'
-            keyPassword 'XUANdu593@'
+            if (System.getProperty("APPCENTER_KEYSTORE_PASSWORD") == null) {
+                storeFile file('keystore/release.keystore')
+                storePassword 'XUANdu593@'
+                keyAlias 'RELEASE_KEYSTORE'
+                keyPassword 'XUANdu593@'
+            }
         }
     }
     buildTypes {
