@@ -6,7 +6,20 @@
 #! /bin/bash
 
 set -e
-read -sp "Please enter the password: " SECRETS_PASSPHRASE
+SECRETS_PASSPHRASE=""
+
+while getopts ":p:" opt; do
+  case $opt in
+    p) SECRETS_PASSPHRASE="$OPTARG"
+    ;;
+    \?) echo "${RED}Invalid option -$OPTARG${NO_COLOR}" >&2
+    ;;
+  esac
+done
+
+if [[ $SECRETS_PASSPHRASE == "" ]]; then
+    read -sp "Please enter the password: " SECRETS_PASSPHRASE
+fi
 
 # Select encrypted file
 FILE_ROOT="secrets.tar.gz"

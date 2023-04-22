@@ -71,3 +71,4 @@ ios/tmp.xcconfig
 ios/sign
 android/app/keystore
 android/app/staging/release
+appcenter-pre-build.sh

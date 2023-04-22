@@ -127,11 +127,11 @@ android {
             keyPassword 'android'
         }
         release {
-            if (System.getProperty("APPCENTER_KEYSTORE_PASSWORD") == null) {
-                storeFile file('keystore/release.keystore')
-                storePassword 'XUANdu593@'
-                keyAlias 'RELEASE_KEYSTORE'
-                keyPassword 'XUANdu593@'
+            if (project.hasProperty('RELEASE_KEYSTORE_FILE')) {
+                storeFile file(RELEASE_KEYSTORE_FILE)
+                storePassword STORE_PASSWORD
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
             }
         }
     }

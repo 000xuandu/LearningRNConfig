@@ -12,7 +12,7 @@ set -e
 FILE_ROOT="__secrets__/secrets"
 
 # Select files to put in the archive
-SECRETS_TO_PACK="env .env codepush ios/sign android/app/keystore"
+SECRETS_TO_PACK="env .env codepush ios/sign android/app/keystore appcenter-pre-build.sh"
 
 echo $FILE_ROOT.tar.gz $SECRETS_TO_PACK
 # Create archive
