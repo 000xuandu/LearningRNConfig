@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pro_LearningRnConfig</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">20Ihk5_ol0igRhvc2uEF4Ae1bTvZwuIaX5CUt</string>
 </resources>

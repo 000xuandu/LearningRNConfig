@@ -17,6 +17,8 @@
     "ios:release:production": "npx react-native run-ios --configuration Release --scheme LearningRnConfig",
     "ios:codepush:staging": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig -k codepush/private.pem -d Staging -p ios/LearningRnConfigStg-Info.plist",
     "ios:codepush:production": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig -k codepush/private.pem -d Production",
+    "android:codepush:staging": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig-Android -d Staging -k codepush/private.pem",
+    "android:codepush:production": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig-Android -d Production -k codepush/private.pem",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",

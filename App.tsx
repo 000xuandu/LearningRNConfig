@@ -75,12 +75,12 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <Text>Update 18</Text>
+        <Text>Update 20</Text>
         <TouchableOpacity
           onPress={() => {
             codePush.sync({
               updateDialog: {
-                title: 'Update new release 18',
+                title: 'Update new release 20',
               },
               installMode: codePush.InstallMode.IMMEDIATE,
             });
@@ -91,7 +91,7 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One 18">
+          <Section title="Step One 20">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
             <Text>{Config.ENV}</Text>
