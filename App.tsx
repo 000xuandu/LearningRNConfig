@@ -13,6 +13,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -25,6 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {Config} from 'react-native-config';
+import codePush from 'react-native-code-push';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -73,11 +75,23 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        <Text>Update 18</Text>
+        <TouchableOpacity
+          onPress={() => {
+            codePush.sync({
+              updateDialog: {
+                title: 'Update new release 18',
+              },
+              installMode: codePush.InstallMode.IMMEDIATE,
+            });
+          }}>
+          <Text>Check for updates</Text>
+        </TouchableOpacity>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
+          <Section title="Step One 18">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
             <Text>{Config.ENV}</Text>
@@ -117,4 +131,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+let codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  installMode: codePush.InstallMode.ON_NEXT_RESUME,
+};
+export default codePush(codePushOptions)(App);
