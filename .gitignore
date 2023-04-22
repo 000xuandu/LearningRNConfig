@@ -68,3 +68,7 @@ yarn-error.log
 ios/tmp.xcconfig
 
 /codepush
+ios/sign
+android/app/keystore
+android/app/staging/release
+android/app/staging/release

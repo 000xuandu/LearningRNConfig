@@ -2,19 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CodePushPublicKey</key>
-	<string>-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3esHLxInkBMFPdvRC1vb
-VsOX9KgTDMAT5PC859VSvQCHRx1E+MnfDVv5HPtmTSUW5w60a15li2a+JxniaF8Y
-bxf+jc5QlQWiGnbKavyu8p1p/S8fptFWifMjtnwsQm5lu7KHEYlWp+9LaEWRsMb/
-fuWuNqUPTSXBJKeDlRn88DwivOOMTYSIMAwDmUN1J9MwAHGvFGe9X6EzSf84Fbst
-oB8mojOIQQyEpw3GvJl3arQYDxbUgPP6h292lUVmw1m/c59nZsbGmSj1QwvbTqTa
-lCz1jNeYcDOLVEgbakDffekweiLCgGRKKwA4VsgC4JUH4tZUX8vRiIB2VQlNwQWW
-zwIDAQAB
------END PUBLIC KEY-----
-</string>
-	<key>CodePushDeploymentKey</key>
-	<string>iFBYJeo7E6bWIcKB2SnfqV78bz7uyFxq3Eu_z</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -35,6 +22,19 @@ zwIDAQAB
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>CodePushDeploymentKey</key>
+	<string>iFBYJeo7E6bWIcKB2SnfqV78bz7uyFxq3Eu_z</string>
+	<key>CodePushPublicKey</key>
+	<string>-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3esHLxInkBMFPdvRC1vb
+VsOX9KgTDMAT5PC859VSvQCHRx1E+MnfDVv5HPtmTSUW5w60a15li2a+JxniaF8Y
+bxf+jc5QlQWiGnbKavyu8p1p/S8fptFWifMjtnwsQm5lu7KHEYlWp+9LaEWRsMb/
+fuWuNqUPTSXBJKeDlRn88DwivOOMTYSIMAwDmUN1J9MwAHGvFGe9X6EzSf84Fbst
+oB8mojOIQQyEpw3GvJl3arQYDxbUgPP6h292lUVmw1m/c59nZsbGmSj1QwvbTqTa
+lCz1jNeYcDOLVEgbakDffekweiLCgGRKKwA4VsgC4JUH4tZUX8vRiIB2VQlNwQWW
+zwIDAQAB
+-----END PUBLIC KEY-----
+</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
