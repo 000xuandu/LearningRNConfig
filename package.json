@@ -19,6 +19,8 @@
     "ios:codepush:production": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig -k codepush/private.pem -d Production",
     "android:codepush:staging": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig-Android -d Staging -k codepush/private.pem",
     "android:codepush:production": "appcenter codepush release-react -a lexuandu.cntt-gmail.com/LearningRnConfig-Android -d Production -k codepush/private.pem",
+    "android:distribute:production": "ENVFILE=env/.env.production bundle exec fastlane android beta",
+    "ios:distribute:production": "ENVFILE=env/.env.production bundle exec fastlane ios beta",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",

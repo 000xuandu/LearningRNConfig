@@ -1,0 +1,64 @@
+platform :ios do    
+    xcodeproj = "ios/LearningRnConfig.xcodeproj"
+    xcworkspace = "ios/LearningRnConfig.xcworkspace"
+
+    desc 'Fetch certificates and provisioning profiles'
+    lane :certificates do
+        match(
+            app_identifier: 'com.rick.learningrnconfig', 
+            readonly: true, 
+            shallow_clone: true,
+            clone_branch_directly: true
+        )
+    end
+
+    desc 'Fetch certificates. Build the iOS application.'
+    lane :build do
+    certificates
+    gymOptions = ({
+        silent: true,
+        clean: true,
+        configuration: 'Release',
+        scheme: 'LearningRnConfig',
+        output_directory: './ios/dist',
+        output_name: 'app.ipa',
+        export_method: 'development',
+    }).merge(
+        File.directory?("../#{xcworkspace}") ?
+        {workspace: xcworkspace} :
+        {project: xcodeproj}
+    )
+    gym(gymOptions)
+    end
+
+    desc 'Fetch certificates, build and upload to App Center.'
+    lane :beta do
+    build
+    appcenter_upload(
+        api_token: "8de56ce77a2a9239c7ca9559af18d3ad47036700",
+        owner_name: "lexuandu.cntt-gmail.com",
+        app_name: "LearningRnConfig",
+        ipa: "./ios/dist/app.ipa",
+        notify_testers: true,
+    )
+    end
+end
+
+platform :android do
+    desc 'Build the Android application.'
+    lane :build do
+      gradle(task: 'clean', project_dir: 'android/')
+      gradle(task: 'bundle', project_dir: 'android/', flavor: "Production")
+    end
+
+    desc 'Build and upload to App Center.'
+    lane :beta do
+    build
+    appcenter_upload(
+        api_token: "eb6a8071edf479d2b6a56215cccc6716b1990997",
+        owner_name: "lexuandu.cntt-gmail.com",
+        app_name: "LearningRnConfig-Android",
+        notify_testers: true,
+    )
+    end
+end
