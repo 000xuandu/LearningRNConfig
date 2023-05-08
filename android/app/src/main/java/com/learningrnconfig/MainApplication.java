@@ -1,6 +1,11 @@
 package com.learningrnconfig;
 
 import android.app.Application;
+import android.content.SharedPreferences;
+
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKey;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -8,6 +13,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 import com.microsoft.codepush.react.CodePush;
 
@@ -64,5 +72,23 @@ public class MainApplication extends Application implements ReactApplication {
       DefaultNewArchitectureEntryPoint.load();
     }
     ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
+     try {
+         MasterKey masterKey = new MasterKey.Builder(getApplicationContext(), MasterKey.DEFAULT_MASTER_KEY_ALIAS)
+                 .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+                 .build();
+         EncryptedSharedPreferences encryptedSharedPreferences = (EncryptedSharedPreferences) EncryptedSharedPreferences.create(
+                 getApplicationContext(),
+                 "secret_shared_file",
+                 masterKey,
+                 EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+         );
+         SharedPreferences.Editor editor = encryptedSharedPreferences.edit();
+         editor.putString("TOKEN", "MY_TOKEN");
+         editor.apply();
+     } catch (GeneralSecurityException | IOException e) {
+         throw new RuntimeException(e);
+     }
   }
 }
